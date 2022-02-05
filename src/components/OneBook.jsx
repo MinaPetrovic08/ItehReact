@@ -1,31 +1,34 @@
 import React from 'react';
-import { TiPlusOutline} from "react-icons/ti";
-import { BsDashLg } from "react-icons/bs";
+import { BsBagPlusFill, BsBagDashFill} from "react-icons/bs";
 
-function OneBook({ book, onAdd, inCart }) {
+function OneBook({ book, onAdd, onRemove, inCart }) {
     const stil = { margin: 1 + "em", borderStyle: "dotted" };
+    const stilPicture = {heigh:300, width:200};
     return (
       <div className={inCart === 1 ? "card" : "card-cart"} style={stil}>
         <img
           className={inCart === 1 ? "card-img-top" : "card-img-left"}
-          src="https://picsum.photos/200"
+          src={book.link}
           alt="Bookstore"
+          style = {stilPicture}
         />
         <div className="card-body">
-          <h3 className="card-title">{book.title}</h3>
+        <h3 className="card-title">{book.title}</h3>
           <p className="card-text">{book.description}</p>
         </div>
-         {/* <button className="btn" onClick={() => onAdd(book.title)}> */}
         {inCart === 1 ? (
           <>
             <button
-              className="btn"
-              onClick={() => onAdd(book.title, book.id)}
+              className="btn" 
+              onClick={() => onAdd(book.title,book.id)}
             >
-              <TiPlusOutline/>
+              <BsBagPlusFill/>
             </button>
-            <button className="btn">
-              <BsDashLg />
+            <button  
+              className="btn" 
+              onClick={() => onRemove(book.title,book.id)}
+            >
+              <BsBagDashFill/>
             </button>
           </>
         ) : (

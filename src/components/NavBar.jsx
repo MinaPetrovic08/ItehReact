@@ -1,5 +1,5 @@
 import React from "react";
-import { BsCartFill } from "react-icons/bs";
+import { BsFillBagFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function NavBar({ cartNum }) {
@@ -8,7 +8,7 @@ function NavBar({ cartNum }) {
     <div className="navBar">
       <Link to="/">Bookstore</Link>
       <Link to="/cart" className="cart-items">
-        <BsCartFill />
+        <BsFillBagFill />
         <p className="cart-num">{cartNum}</p>
       </Link>
     </div>
